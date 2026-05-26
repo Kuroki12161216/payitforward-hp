@@ -140,17 +140,81 @@
     });
   });
 
-  /* ---------- Hero parallax (subtle) ---------- */
-  const blobs = document.querySelectorAll('.hero__blob');
-  if (blobs.length && window.matchMedia('(min-width: 720px)').matches) {
-    window.addEventListener('mousemove', (e) => {
-      const { innerWidth: w, innerHeight: h } = window;
-      const x = (e.clientX / w - 0.5);
-      const y = (e.clientY / h - 0.5);
-      blobs.forEach((b, i) => {
-        const mag = (i + 1) * 14;
-        b.style.transform = `translate(${x * mag}px, ${y * mag}px)`;
+  /* ---------- Hero Slider ---------- */
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+  const prevBtn = document.querySelector('.hero-arrow--prev');
+  const nextBtn = document.querySelector('.hero-arrow--next');
+  const heroEl = document.querySelector('.hero');
+
+  if (slides.length > 1) {
+    let activeIdx = 0;
+    let timer = null;
+    const INTERVAL = 5000;
+
+    const show = (idx) => {
+      const n = slides.length;
+      const next = ((idx % n) + n) % n; // 負数も安全に
+      slides.forEach((s, i) => s.classList.toggle('is-active', i === next));
+      dots.forEach((d, i) => {
+        d.classList.toggle('is-active', i === next);
+        d.setAttribute('aria-selected', String(i === next));
       });
-    }, { passive: true });
+      activeIdx = next;
+    };
+
+    const startAutoplay = () => {
+      stopAutoplay();
+      timer = setInterval(() => show(activeIdx + 1), INTERVAL);
+    };
+    const stopAutoplay = () => {
+      if (timer) { clearInterval(timer); timer = null; }
+    };
+
+    // ドットクリック
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => { show(i); startAutoplay(); });
+    });
+    // 矢印
+    if (prevBtn) prevBtn.addEventListener('click', () => { show(activeIdx - 1); startAutoplay(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { show(activeIdx + 1); startAutoplay(); });
+
+    // ホバーで一時停止
+    if (heroEl) {
+      heroEl.addEventListener('mouseenter', stopAutoplay);
+      heroEl.addEventListener('mouseleave', startAutoplay);
+    }
+
+    // タブ非表示時は止める（リソース節約）
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stopAutoplay(); else startAutoplay();
+    });
+
+    // タッチスワイプ対応（簡易）
+    if (heroEl) {
+      let startX = null;
+      heroEl.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+      heroEl.addEventListener('touchend', (e) => {
+        if (startX === null) return;
+        const dx = (e.changedTouches[0].clientX - startX);
+        if (Math.abs(dx) > 50) {
+          show(activeIdx + (dx < 0 ? 1 : -1));
+          startAutoplay();
+        }
+        startX = null;
+      }, { passive: true });
+    }
+
+    // キーボード（矢印キー）対応
+    document.addEventListener('keydown', (e) => {
+      // ヒーローが画面内にあるときだけ反応
+      if (!heroEl) return;
+      const rect = heroEl.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+      if (e.key === 'ArrowLeft')  { show(activeIdx - 1); startAutoplay(); }
+      if (e.key === 'ArrowRight') { show(activeIdx + 1); startAutoplay(); }
+    });
+
+    startAutoplay();
   }
 })();

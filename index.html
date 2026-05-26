@@ -45,50 +45,56 @@
     </div>
   </header>
 
-  <!-- ヒーロー -->
+  <!-- ヒーロー（フルブリードスライドショー） -->
   <section class="hero" id="home">
-    <div class="hero__bg">
-      <div class="hero__blob hero__blob--1"></div>
-      <div class="hero__blob hero__blob--2"></div>
-      <div class="hero__blob hero__blob--3"></div>
+
+    <!-- 背景スライダー -->
+    <div class="hero-slider" aria-hidden="true">
+      <div class="hero-slide is-active"
+           style="background-image:url('https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1800&q=85');"></div>
+      <div class="hero-slide"
+           style="background-image:url('https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=1800&q=85');"></div>
+      <div class="hero-slide"
+           style="background-image:url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1800&q=85');"></div>
+      <div class="hero-slide"
+           style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=85');"></div>
+      <div class="hero-slide"
+           style="background-image:url('https://images.unsplash.com/photo-1611143669185-af224c5e3252?auto=format&fit=crop&w=1800&q=85');"></div>
     </div>
 
-    <div class="hero__marquee" aria-hidden="true">
-      <div class="marquee__track">
-        <span>PAY IT FORWARD ★ 食を通じて、日本のイケてる未来を創る ★ MAGURO STANDARD ★ NEW STANDARD OF DINING ★ </span>
-        <span>PAY IT FORWARD ★ 食を通じて、日本のイケてる未来を創る ★ MAGURO STANDARD ★ NEW STANDARD OF DINING ★ </span>
+    <!-- カラーオーバーレイ -->
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <!-- テキスト -->
+    <div class="hero__inner">
+      <p class="hero__sub">FOR THE FUTURE OF JAPANESE FOOD CULTURE</p>
+      <h1 class="hero__title">
+        <span class="hero__line"><em>食</em>を通じて、</span>
+        <span class="hero__line">日本の<em>イケてる未来</em>を</span>
+        <span class="hero__line">創る。</span>
+      </h1>
+      <p class="hero__lead">
+        人と食の幸せの選択肢を広げ、<br>
+        飲食業界のニュースタンダードを創る。
+      </p>
+      <div class="hero__cta">
+        <a href="#philosophy" class="btn btn--primary">私たちについて<span>→</span></a>
+        <a href="recruit.html" class="btn btn--ghost">採用情報を見る<span>→</span></a>
       </div>
     </div>
 
-    <div class="hero__inner hero__inner--split">
-      <div class="hero__copy">
-        <p class="hero__sub">FOR THE FUTURE OF JAPANESE FOOD CULTURE</p>
-        <h1 class="hero__title">
-          <span class="hero__line"><em>食</em>を通じて、</span>
-          <span class="hero__line">日本の<em>イケてる未来</em>を</span>
-          <span class="hero__line">創る。</span>
-        </h1>
-        <p class="hero__lead">
-          人と食の幸せの選択肢を広げ、<br>
-          飲食業界のニュースタンダードを創る。
-        </p>
-        <div class="hero__cta">
-          <a href="#philosophy" class="btn btn--primary">私たちについて<span>→</span></a>
-          <a href="recruit.html" class="btn btn--ghost">採用情報を見る<span>→</span></a>
-        </div>
-      </div>
-
-      <div class="hero__visual">
-        <div class="hero__accent" aria-hidden="true"></div>
-        <div class="hero__portrait"
-             style="background-image:url('https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1200&q=85');"
-             role="img" aria-label="Pay it Forward のスタッフ"></div>
-        <div class="hero__sticker">
-          <span class="hero__sticker-en">SINCE</span>
-          <span class="hero__sticker-num">2020</span>
-        </div>
-      </div>
+    <!-- スライドインジケーター -->
+    <div class="hero-dots" role="tablist" aria-label="ヒーロースライド">
+      <button class="hero-dot is-active" type="button" role="tab" aria-label="スライド 1" data-slide="0"></button>
+      <button class="hero-dot" type="button" role="tab" aria-label="スライド 2" data-slide="1"></button>
+      <button class="hero-dot" type="button" role="tab" aria-label="スライド 3" data-slide="2"></button>
+      <button class="hero-dot" type="button" role="tab" aria-label="スライド 4" data-slide="3"></button>
+      <button class="hero-dot" type="button" role="tab" aria-label="スライド 5" data-slide="4"></button>
     </div>
+
+    <!-- 左右コントロール -->
+    <button class="hero-arrow hero-arrow--prev" type="button" aria-label="前のスライドへ">‹</button>
+    <button class="hero-arrow hero-arrow--next" type="button" aria-label="次のスライドへ">›</button>
 
     <div class="hero__scroll" aria-hidden="true">
       <span>SCROLL</span>
