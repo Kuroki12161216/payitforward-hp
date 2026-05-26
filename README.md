@@ -16,16 +16,23 @@
 
 ## セクション
 
-1. **Hero** — メインコピー「食を通じて、日本のイケてる未来を創る。」
-2. **About / Intro** — 会社紹介
-3. **Philosophy** — PURPOSE / MISSION / VISION / VALUE
-4. **Business** — マグロ居酒屋／魚卸協業／マグロ焼肉／労務改革
-5. **Brand** — マグロと炉端 成る／マグロスタンダード 門前仲町店／錦糸町店
-6. **Numbers** — 主要数値（VISION、店舗目標、GIVER、VALUES）
-7. **Recruit** — 社員 / アルバイト / 独立支援
-8. **Company** — 会社概要
-9. **Contact** — お問い合わせCTA
-10. **Footer**
+1. **Hero** — メインコピー「食を通じて、日本のイケてる未来を創る。」 + 写真コラージュ + SINCEステッカー
+2. **About / Intro** — 会社紹介 + ビジュアル写真2枚
+3. **Movie** — 理念動画（YouTube埋込：`_uN5xWZHak0`、youtube-nocookie使用）
+4. **Philosophy** — PURPOSE / MISSION / VISION / VALUE
+5. **Business** — 4事業（各事業に写真）
+6. **Brand** — 3店舗（カバー写真付き）
+7. **Gallery** — 店舗の空気感ギャラリー（6枚 / モザイクレイアウト）
+8. **Numbers** — 主要数値ハイライト
+9. **Recruit** — 採用 + チーム写真
+10. **Company** — 会社概要
+11. **Contact** — お問い合わせCTA
+12. **Footer**
+
+### 画像について
+
+写真は仮置きとして [Unsplash](https://unsplash.com/) のテーマ画像（マグロ・寿司・居酒屋・厨房・チーム等）を inline `style="background-image:url(...)"` で埋め込んでいます。
+本番運用時は AI 生成画像や自社撮影写真に差し替えてください。差し替え箇所は `index.html` 内 `style="background-image:url(...)"` を grep してまとめて検索できます。
 
 ## カラーパレット
 
