@@ -489,45 +489,68 @@ button { font: inherit; cursor: pointer; border: 0; background: transparent; col
 .section--accent .btn--ghost:hover { background: var(--c-white); color: var(--c-blue); }
 .btn--lg { padding: 22px 36px; font-size: 15px; }
 
-/* ---------- Hero: split (copy + visual) ---------- */
+/* ---------- Hero: split (copy + large portrait) ---------- */
 .hero__inner--split {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: 1.05fr 1fr;
   gap: clamp(32px, 5vw, 80px);
   align-items: center;
 }
 .hero__visual {
   position: relative;
   aspect-ratio: 4 / 5;
-  max-width: 520px;
-  margin-left: auto;
+  max-width: 600px;
   width: 100%;
+  margin-left: auto;
 }
-.hero__photo {
+/* 後方の青いアクセント矩形（オフセットで奥行きを作る） */
+.hero__accent {
   position: absolute;
-  background-size: cover;
-  background-position: center;
-  border-radius: 20px;
-  box-shadow: var(--shadow);
-  overflow: hidden;
-}
-.hero__photo--main {
-  inset: 0 0 18% 18%;
-  background-color: var(--c-blue);
+  inset: 6% -8% -8% 6%;
+  background: linear-gradient(135deg, var(--c-sky) 0%, var(--c-blue) 100%);
+  border-radius: 28px;
   z-index: 1;
+  opacity: 0.95;
 }
-.hero__photo--sub {
-  inset: 28% 24% 0 0;
-  background-color: var(--c-blue-dark);
-  border: 6px solid var(--c-white);
+.hero__accent::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.35), transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(0,27,72,.25), transparent 55%);
+}
+/* メインの大きな人物写真 */
+.hero__portrait {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 20%;
+  background-color: var(--c-blue-deep);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
   z-index: 2;
+  overflow: hidden;
+  border: 8px solid var(--c-white);
+  transition: transform .8s cubic-bezier(.2,.7,.2,1);
 }
+.hero__portrait::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(0,27,72,.18));
+  pointer-events: none;
+}
+.hero__visual:hover .hero__portrait { transform: translateY(-4px); }
+
+/* SINCE 2020 ステッカー */
 .hero__sticker {
   position: absolute;
-  top: -10px;
-  right: -10px;
-  width: 110px;
-  height: 110px;
+  top: -16px;
+  right: -16px;
+  width: 120px;
+  height: 120px;
   background: var(--c-blue);
   color: var(--c-white);
   border-radius: 50%;
@@ -540,9 +563,10 @@ button { font: inherit; cursor: pointer; border: 0; background: transparent; col
   box-shadow: var(--shadow-sm);
   transform: rotate(-8deg);
   animation: stickerSpin 18s linear infinite;
+  border: 3px solid var(--c-white);
 }
-.hero__sticker-en { font-size: 12px; opacity: .85; }
-.hero__sticker-num { font-size: 32px; line-height: 1; margin-top: 2px; }
+.hero__sticker-en { font-size: 13px; opacity: .85; }
+.hero__sticker-num { font-size: 36px; line-height: 1; margin-top: 2px; }
 @keyframes stickerSpin {
   to { transform: rotate(352deg); }
 }
