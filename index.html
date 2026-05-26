@@ -14,97 +14,10 @@
 </head>
 <body>
 
-  <!-- ローディング（マグロが泳ぐ海中） -->
+  <!-- ローディング -->
   <div class="loader" id="loader">
-    <div class="loader__sea" aria-hidden="true">
-      <!-- 泡 -->
-      <span class="bubble bubble--1"></span>
-      <span class="bubble bubble--2"></span>
-      <span class="bubble bubble--3"></span>
-      <span class="bubble bubble--4"></span>
-      <span class="bubble bubble--5"></span>
-      <span class="bubble bubble--6"></span>
-      <span class="bubble bubble--7"></span>
-
-      <!-- メインのマグロ -->
-      <div class="loader__fish-wrap loader__fish-wrap--main">
-        <svg class="loader__fish" viewBox="0 0 260 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <defs>
-            <linearGradient id="maguroBody" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%"  stop-color="#0c1a2e"/>
-              <stop offset="45%" stop-color="#002e6e"/>
-              <stop offset="55%" stop-color="#5b88c0"/>
-              <stop offset="100%" stop-color="#dfe9f4"/>
-            </linearGradient>
-          </defs>
-
-          <!-- 尾びれ（クレセント、独立して振る） -->
-          <g class="fish-tail">
-            <path d="M 200,50 L 252,14 Q 236,38 236,50 Q 236,62 252,86 L 200,50 Z" fill="#001b48"/>
-          </g>
-
-          <!-- 胴体 -->
-          <path d="M 22,50 Q 32,18 95,22 Q 155,18 195,35 Q 207,42 207,50 Q 207,58 195,65 Q 155,82 95,78 Q 32,82 22,50 Z"
-                fill="url(#maguroBody)" stroke="#001b48" stroke-width="1.2"/>
-
-          <!-- 背びれ -->
-          <path d="M 110,22 L 128,3 L 148,28 Z" fill="#001b48"/>
-          <!-- 尻びれ -->
-          <path d="M 115,78 L 135,97 L 158,75 Z" fill="#001b48"/>
-          <!-- 胸びれ -->
-          <path d="M 75,52 L 92,78 L 110,57 Z" fill="#002e6e"/>
-
-          <!-- 小ヒレ（finlets） -->
-          <g fill="#84d5ff">
-            <circle cx="158" cy="30" r="2"/>
-            <circle cx="170" cy="29" r="2"/>
-            <circle cx="183" cy="31" r="2"/>
-            <circle cx="158" cy="70" r="2"/>
-            <circle cx="170" cy="71" r="2"/>
-            <circle cx="183" cy="69" r="2"/>
-          </g>
-
-          <!-- 側線 -->
-          <path d="M 50,50 Q 120,53 188,50" stroke="#84d5ff" stroke-width="1.5" fill="none" opacity="0.6"/>
-          <!-- えら線 -->
-          <path d="M 65,32 Q 70,50 65,68" stroke="#001b48" stroke-width="1.5" fill="none" opacity="0.5"/>
-
-          <!-- 目 -->
-          <circle cx="48" cy="42" r="5"   fill="#ffffff"/>
-          <circle cx="48" cy="42" r="2.8" fill="#001b48"/>
-          <circle cx="46.5" cy="40.5" r="1" fill="#ffffff"/>
-
-          <!-- 口 -->
-          <path d="M 22,52 Q 28,55 34,54" stroke="#001b48" stroke-width="1.2" fill="none"/>
-        </svg>
-      </div>
-
-      <!-- 小さなマグロ（手前を素早く） -->
-      <div class="loader__fish-wrap loader__fish-wrap--small">
-        <svg class="loader__fish" viewBox="0 0 260 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <use href="#maguroBody"/>
-          <g class="fish-tail">
-            <path d="M 200,50 L 252,14 Q 236,38 236,50 Q 236,62 252,86 L 200,50 Z" fill="#001b48"/>
-          </g>
-          <path d="M 22,50 Q 32,18 95,22 Q 155,18 195,35 Q 207,42 207,50 Q 207,58 195,65 Q 155,82 95,78 Q 32,82 22,50 Z"
-                fill="url(#maguroBody)" stroke="#001b48" stroke-width="1.2"/>
-          <path d="M 110,22 L 128,3 L 148,28 Z" fill="#001b48"/>
-          <path d="M 115,78 L 135,97 L 158,75 Z" fill="#001b48"/>
-          <path d="M 75,52 L 92,78 L 110,57 Z" fill="#002e6e"/>
-          <g fill="#84d5ff">
-            <circle cx="158" cy="30" r="2"/><circle cx="170" cy="29" r="2"/><circle cx="183" cy="31" r="2"/>
-            <circle cx="158" cy="70" r="2"/><circle cx="170" cy="71" r="2"/><circle cx="183" cy="69" r="2"/>
-          </g>
-          <path d="M 50,50 Q 120,53 188,50" stroke="#84d5ff" stroke-width="1.5" fill="none" opacity="0.6"/>
-          <circle cx="48" cy="42" r="5"   fill="#ffffff"/>
-          <circle cx="48" cy="42" r="2.8" fill="#001b48"/>
-        </svg>
-      </div>
-    </div>
-
     <div class="loader__inner">
       <div class="loader__logo">Pay it Forward</div>
-      <p class="loader__sub">食を通じて、日本のイケてる未来を創る。</p>
       <div class="loader__bar"><span></span></div>
     </div>
   </div>
