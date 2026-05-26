@@ -8,11 +8,26 @@
 
 ```
 .
-├── index.html       # シングルページ構成のコーポレートサイト
+├── index.html       # トップページ
+├── recruit.html     # 採用情報サブページ（給与制度・募集要項・応募フロー等）
 ├── css/style.css    # スタイル一式（CSS変数でカラーパレット管理）
 ├── js/main.js       # スクロール演出 / ローディング / カウンタ等
 └── assets/          # 画像等（必要に応じて追加）
 ```
+
+### Recruit サブページ（recruit.html）
+
+[mostfun.jp/recruit_full/](https://mostfun.jp/recruit_full/) の構成に倣い、[Pay it Forward PR TIMES リリース](https://prtimes.jp/main/html/rd/p/000000002.000178596.html) の実情報を反映:
+
+- パンくず（Home › Recruit）
+- ページヒーロー（背景画像 + ズームアニメ）
+- 代表メッセージ（宮﨑 元成）
+- Pay it Forward で働く 3つの理由
+- 給与制度（10段階等級表 / 昇給実績3例）
+- 募集要項テーブル
+- 応募から内定までのフロー（5ステップ）
+- 求める人物像（Giver / Major Leaguer / Dreamer）
+- 応募 CTA（採用担当メール）
 
 ## セクション
 

@@ -74,6 +74,17 @@
     '.rec-card',
     '.company__row',
     '.contact__inner',
+    // recruit subpage
+    '.page-hero__inner',
+    '.rec-message__copy',
+    '.rec-message__media',
+    '.reason',
+    '.pay__group',
+    '.case',
+    '.req-row',
+    '.flow-step',
+    '.value-card',
+    '.apply__inner',
   ];
   const revealEls = document.querySelectorAll(revealSelectors.join(','));
   revealEls.forEach((el, i) => {
