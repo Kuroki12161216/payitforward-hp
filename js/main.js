@@ -9,10 +9,24 @@
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   /* ---------- Loader ---------- */
-  window.addEventListener('load', () => {
+  // マグロが泳ぐ演出を最低 2.4s は見せたい。
+  // 画面表示開始からの経過時間と、window.load の発火を両方待ってから消す。
+  const loaderStart = performance.now();
+  const MIN_LOADER_MS = 2400;
+  const hideLoader = () => {
     const loader = document.getElementById('loader');
-    if (loader) setTimeout(() => loader.classList.add('is-hidden'), 700);
-  });
+    if (!loader) return;
+    const elapsed = performance.now() - loaderStart;
+    const wait = Math.max(0, MIN_LOADER_MS - elapsed);
+    setTimeout(() => loader.classList.add('is-hidden'), wait);
+  };
+  if (document.readyState === 'complete') {
+    hideLoader();
+  } else {
+    window.addEventListener('load', hideLoader);
+    // 安全弁: 画像が遅い場合でも 6 秒で必ず消す
+    setTimeout(hideLoader, 6000);
+  }
 
   /* ---------- Header on scroll ---------- */
   const header = document.getElementById('header');
